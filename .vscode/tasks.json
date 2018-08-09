@@ -1,31 +1,20 @@
 {
-    "version": "0.1.0",
-    "osx": {
-        "command": "/bin/bash",
-        "options": {
-            "cwd": "${workspaceRoot}"
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compose up (debug)",
+            "type": "shell",
+            "command": "docker-compose -f ${cwd}/src/docker-compose.debug.yml up --detach --build",
+            "group": "build",
+            "problemMatcher": []
         },
-        "tasks": [
-            {
-                "taskName": "buildForDebug",
-                "suppressTaskName": true,
-                "args": [
-                    "-c",
-                    "./scripts/dockerTask.sh buildForDebug"
-                ],
-                "isBuildCommand": false,
-                "showOutput": "always"
-            },
-            {
-                "taskName": "cleanup",
-                "suppressTaskName": true,
-                "args": [
-                    "-c",
-                    "./scripts/dockerTask.sh cleanup"
-                ],
-                "isBuildCommand": false,
-                "showOutput": "always"
-            }
-        ]
-    }
+        {
+            "label": "compose down (debug)",
+            "type": "shell",
+            "command": "docker-compose -f ${cwd}/src/docker-compose.debug.yml down",
+            ,
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
 }
