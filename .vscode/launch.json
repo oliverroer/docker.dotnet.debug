@@ -6,6 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "compose up (debug)",
+            "postDebugTask": "compose down (debug)",
             "program": "/app/out/App.dll",
             "cwd": "/app/out",
             "sourceFileMap": {
